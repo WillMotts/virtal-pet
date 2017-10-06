@@ -6,7 +6,8 @@ public class VirtualPetApp {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		VirtualPet pet = new VirtualPet(50, 0, 50, "");
+
+		VirtualPet pet = new VirtualPet(50, 0, 50, 0, 0);
 
 		System.out.println("Hello! Welcome to Virtual Pet simulator!");
 		System.out.println("\nWhat will you name your pet?");
@@ -35,6 +36,7 @@ public class VirtualPetApp {
 				pet.feedPet(feedAmount);
 				System.out.println("You gave " + feedAmount + " food!");
 				System.out.println("Pet hunger is " + pet.getHunger());
+				System.out.println("\nWhat would you like to do?");
 
 			} else if (choice.equals("2")) {
 				System.out.println("You give " + namePet + " water!");
@@ -43,6 +45,7 @@ public class VirtualPetApp {
 				pet.drinkPet(drinkAmount);
 				System.out.println("You gave " + drinkAmount + " water!");
 				System.out.println("Pet thirst is " + pet.getThirst());
+				System.out.println("\nWhat would you like to do?");
 
 			} else if (choice.equals("3")) {
 				System.out.println("You play with " + namePet + "!");
@@ -51,9 +54,19 @@ public class VirtualPetApp {
 				pet.playPet(playAmount);
 				System.out.println("You play with " + namePet + " for " + playAmount + " minutes!");
 				System.out.println("Your pet boredom is " + pet.getBoredom());
+				System.out.println("\nWhat would you like to do?");
+
+			} else if (choice.equals("4")) {
+				System.out.println("Pet boredom is "+pet.getBoredom());
+				System.out.println("Pet thirst is "+pet.getThirst());
+				System.out.println("Pet hunger is "+pet.getHunger());
+				System.out.println("\nWhat would you like to do?");
+				
 
 			}
-			System.out.println("\nWhat would you like to do?");
+
+			pet.doTick(1);
+			
 		} while (!choice.equals("5"));
 		System.out.println(namePet + " says: 'You're no fun!'");
 

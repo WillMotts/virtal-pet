@@ -5,36 +5,33 @@ public class VirtualPet {
 	private int petHunger;
 	private int petBoredom;
 	private int petThirst;
-	private int petStatus;
-	private int tick;
 
-	public VirtualPet(int petHunger, int petBoredom, int petThirst, int petStatus, int tick) {
+	public VirtualPet(int petHunger, int petBoredom, int petThirst) {
 		this.petHunger = petHunger;
 		this.petThirst = petThirst;
 		this.petBoredom = petBoredom;
-		this.petStatus = petStatus;
-		this.tick = tick;
 
 	}
 
 	public void feedPet(int feedAmount) {
 		petHunger += feedAmount;
-		petThirst -= feedAmount*.1;
+		petThirst -= feedAmount * .1;
 	}
 
 	public void playPet(int playAmount) {
 		petBoredom += playAmount;
-		petHunger-=playAmount*.1;
+		petHunger -= playAmount * .1;
 	}
 
 	public void drinkPet(int drinkAmount) {
 		petThirst += drinkAmount;
-		petBoredom-=drinkAmount*.1;
+		petBoredom -= drinkAmount * .1;
 	}
+
 	public void doTick(int tickAmount) {
-		petThirst-=1;
-		petHunger-=1;
-		petBoredom-=1;
+		petThirst -= 1;
+		petHunger -= 1;
+		petBoredom -= 1;
 	}
 
 	public int getHunger() {
@@ -48,7 +45,5 @@ public class VirtualPet {
 	public int getBoredom() {
 		return petBoredom;
 	}
-
-	
 
 }
